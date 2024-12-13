@@ -1,0 +1,32 @@
+<section>
+  <div class="h-[70vh] flex items-center justify-center">
+    <div class="w-[450px] mx-auto bg-white pt-7 rounded-lg shadow-md px-1">
+      <div class="mx-2">
+        <h1 class="text-center text-2xl font-mono font-semibold mb-4">Login</h1>
+        <hr />
+      </div>
+      <form action="#" [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="my-4 mx-3 space-y-2">
+          <label class="block font-medium text-sm" for="">UserName</label>
+          <input class="border border-gray-300 w-full h-10 px-3 outline-none rounded-lg" type="text"
+            formControlName="username" id="email" placeholder="name@company.com" />
+        </div>
+        <div class="my-4 mx-3 space-y-2">
+          <label class="block font-medium text-sm" for="">Password</label>
+          <input class="border border-gray-300 w-full h-10 px-3 outline-none rounded-lg" type="password"
+            formControlName="password" id="password" placeholder="******" />
+        </div>
+        <div class="my-4 mx-3">
+          <button type="submit" [disabled]="!loginForm.valid"
+            class="text-white bg-blue-400 w-full flex items-center justify-center h-10 rounded-lg">
+            Login
+          </button>
+        </div>
+        <div class="my-4 mx-3 space-x-5 text-sm">
+          <span>Not a member?</span>
+          <a class="text-gray-500" routerLink="/register">Register</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
