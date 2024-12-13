@@ -1,20 +1,27 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { API_BASE_URL } from '../config';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5248/api/auth';
-  constructor(private http:HttpClient) { }
+  private apiUrl = `${API_BASE_URL}/auth`;
+  constructor(private http: HttpClient) {}
 
-  register(user: { username: string; password: string; }): Observable<any> {
+  register(user: { username: string; password: string }): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, user);
   }
 
-  login(credentials: { email: string; password: string }): Observable<{ token: string }> {
-    return this.http.post<{ token: string }>(`${this.apiUrl}/login`, credentials);
+  login(credentials: {
+    email: string;
+    password: string;
+  }): Observable<{ token: string }> {
+    return this.http.post<{ token: string }>(
+      `${this.apiUrl}/login`,
+      credentials,
+    );
   }
 
   saveToken(token: string) {

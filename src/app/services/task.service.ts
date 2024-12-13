@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {  API_BASE_URL } from '../config'
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
-  private apiUrl = 'http://localhost:5248/api/task'; // Update with your API URL
+  private apiUrl = `${API_BASE_URL}/task`; // Update with your API URL
 
   constructor(private http: HttpClient) { }
 
